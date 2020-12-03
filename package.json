@@ -1,0 +1,52 @@
+{
+  "name": "api-template",
+  "version": "1.0.0",
+  "description": "an API template built with TypeScript, Fastify and Mikro-ORM",
+  "main": "dist/index.js",
+  "keywords": [
+    "typescript",
+    "node",
+    "fastify",
+    "mikro-orm"
+  ],
+  "scripts": {
+    "start": "node -r dotenv/config dist/index.js",
+    "prebuild": "rm dist -rf",
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsnd --transpile-only -r dotenv/config src/index.ts",
+    "orm": "node -r dotenv/config node_modules/.bin/mikro-orm"
+  },
+  "author": "Karim Daghari",
+  "devDependencies": {
+    "@mikro-orm/cli": "^4.3.2",
+    "@mikro-orm/reflection": "^4.3.2",
+    "@tsconfig/node14": "^1.0.0",
+    "@types/dotenv": "^8.2.0",
+    "@types/node": "^14.14.10",
+    "@typescript-eslint/eslint-plugin": "^4.9.0",
+    "@typescript-eslint/parser": "^4.9.0",
+    "eslint": "^7.14.0",
+    "eslint-config-prettier": "^6.15.0",
+    "prettier": "2.2.1",
+    "ts-node": "^9.0.0",
+    "ts-node-dev": "^1.0.0",
+    "typescript": "^4.1.2"
+  },
+  "dependencies": {
+    "@mikro-orm/core": "^4.3.2",
+    "@mikro-orm/postgresql": "^4.3.2",
+    "dotenv": "^8.2.0",
+    "fastify": "^3.9.1",
+    "fastify-cors": "^5.0.0",
+    "fastify-helmet": "^5.0.3",
+    "fastify-rate-limit": "^4.0.3",
+    "pino-pretty": "^4.3.0"
+  },
+  "mikro-orm": {
+    "useTsNode": true,
+    "configPaths": [
+      "./src/mikro-orm.config.ts",
+      "./dist/mikro-orm.config.js"
+    ]
+  }
+}
